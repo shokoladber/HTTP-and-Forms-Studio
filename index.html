@@ -12,8 +12,59 @@
 
 <body>
 
-	<form id="searchForm">
+	<form id="searchForm" action="" method = "get">
+
     <!-- TODO: add form elements -->
+	<label> <input type="text" name="q"> </label>
+
+	<label> Google <input type="radio" name="engine" id="engine" value="google"> </label>
+	<label> DuckDuckGo <input type="radio" name="engine" id="engine" value="DuckDuckGo"> </label>
+	<label> Bing <input type="radio" name="engine" id="engine" value="bing"> </label>
+	<label> Ask <input type="radio" name="engine" id="engine" value="ask"> </label>
+	<button>Go!</button>
+
 	</form>
+
+	<script>
+		window.addEventListener("load", function(){
+			let form = document.querySelector("form");
+			form.addEventListener("submit", function(event){
+				let userEngineInput = document.querySelector("[name=engine]:checked");
+				
+				console.log(userEngineInput);
+				let formAction = document.getElementById(searchForm);
+				if (userEngineInput === "google"){
+					formAction.innerHTML.action = "https://www.google.com/search"
+				}else if (userEngineInput === "DuckDuckGo"){
+					formAction.innerHTML.action = "https://duckduckgo.com/"
+				}else if (userEngineInput === "bing"){
+					formAction.innerHTML.action = "https://www.bing.com/search"
+				} else if (userEngineInput === "ask"){
+					formAction.innerHTML.action = "https://www.ask.com/web"
+				}
+			});
+		});
+
+
+
+// 		let selection = document.getElementById(engine);
+// 		let goTo = document.getElementById(searchForm);
+// 		if (selection.value === "google") {
+// 			goTo.innerHTML
+// 		}
+
+// 		window.addEventListener("load", function() {
+//       let form = document.querySelector("form");
+//       form.addEventListener("submit", function(event) {
+//          let usernameInput = document.querySelector("input[name=username]");
+//          let teamName = document.querySelector("input[name=team]");
+//          if (usernameInput.value === "" || teamName.value === "") {
+//             alert("All fields are required!");
+//             // stop the form submission
+//             event.preventDefault();
+//          }
+//       });
+//    });
+	</script>
 
 </body>
