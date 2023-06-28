@@ -11,7 +11,7 @@
 				'ask': "https://www.ask.com/web"
 			};
 			let selectedEngine = document.querySelector("[name=engine]:checked");
-			let action = actions[selectedEngine];
+			let action = actions[selectedEngine.value];
 			form.setAttribute("action", action);
 		};
 
